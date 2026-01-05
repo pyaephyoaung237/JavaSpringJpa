@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<footer class="bg-light text-dark mt-5"
+        th:fragment="footer">
+  <div class="container py-4">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <h6>Follow Us</h6>
+        <a href="#" class="text-dark me-2"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-dark me-2"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="text-dark"><i class="bi bi-github"></i></a>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div class="text-center small">
+      © <span th:text="${#dates.year(#dates.createNow())}"></span>
+      Ecom Store. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

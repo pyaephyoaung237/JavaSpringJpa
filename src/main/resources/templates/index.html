@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<style type="text/css">
+
+.product-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* small shadow */
+}
+
+
+.product-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* bigger shadow */
+  transform: translateY(-3px); /* slight lift */
+}
+
+
+</style>
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<img alt="shopping" src="images/shopping.jpg" class="img-fluid w-100 " style="height:500px;">
+ <div class="container mt-4">
+  <p class="text-center">Most popular phone.</p>
+  <div class="row row-cols-2 row-cols-md-4 g-3 justify-content-center">
+    
+   
+    <div class="col">
+      <div class="card h-100 product-card text-center">
+        <img src="images/iphone15Green.webp" class="card-img-top" alt="Product 1">
+        <div class="card-body p-2">
+          <h6 class="card-title mb-0">Iphone 15</h6>
+        </div>
+      </div>
+    </div>
+
+   
+    <div class="col">
+      <div class="card h-100 product-card text-center">
+        <img src="images/iphone15Pink.webp" class="card-img-top" alt="Product 2">
+        <div class="card-body p-2">
+          <h6 class="card-title mb-0">Iphone 15</h6>
+        </div>
+      </div>
+    </div>
+
+   
+    <div class="col">
+      <div class="card h-100 product-card text-center">
+        <img src="images/iphone15Black.webp" class="card-img-top" alt="Product 3">
+        <div class="card-body p-2">
+          <h6 class="card-title mb-0">Iphone 15</h6>
+        </div>
+      </div>
+    </div>
+
+  
+    <div class="col">
+      <div class="card h-100 product-card text-center">
+        <img src="images/iphone15Blue.webp" class="card-img-top" alt="Product 4">
+        <div class="card-body p-2">
+          <h6 class="card-title mb-0">Iphone 15</h6>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="container my-5 ">
+  <p class="text-center">Most popular Watch.</p>
+  <div class="row g-4 ">
+     
+    <div class="col-md-3 ">
+      <div class="card h-100 product-card text-center ">
+        <img src="images/watch3.webp" class="card-img-top">
+        <div class="card-body">
+          <h6>Alexandre christie</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card h-100 product-card text-center">
+        <img src="images/watch4.webp" class="card-img-top">
+        <div class="card-body">
+          <h6>Alexandre christie</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card h-100 product-card text-center">
+        <img src="images/watch3.webp" class="card-img-top">
+        <div class="card-body">
+          <h6>Alexandre christie</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card h-100 product-card text-center">
+        <img src="images/watch4.webp" class="card-img-top">
+        <div class="card-body">
+          <h6>Alexandre christie</h6>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>
