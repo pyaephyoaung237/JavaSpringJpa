@@ -1,4 +1,4 @@
-package com.example.demo.other;
+package com.example.demo.Pojo;
 
 public class UserLogin {
     private String email;

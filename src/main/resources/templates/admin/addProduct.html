@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add Product</title>
+
+<link rel="stylesheet" th:href="@{/css/navbar.css}">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<style>
+body {
+	background-color: #f8f9fa;
+}
+
+.card {
+	border-radius: 1rem;
+	box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+	border-top-left-radius: 1rem;
+	border-top-right-radius: 1rem;
+	font-size: 1.25rem;
+}
+
+.form-label {
+	font-weight: 500;
+}
+
+.form-control, .form-select {
+	border-radius: 0.5rem;
+}
+
+button.btn-dark {
+	background-color: #343a40;
+	border: none;
+	transition: background-color 0.3s ease;
+}
+
+button.btn-dark:hover {
+	background-color: #212529;
+}
+</style>
+</head>
+<body>
+	
+	<div class="container">
+		<a  th:href="@{/adminPage}"
+			class="btn btn-outline-dark btn-sm d-inline-flex align-items-center">
+
+			<i class="bi bi-arrow-left me-1"></i> <span
+			class="d-none d-md-inline">Back</span>
+		</a>
+	</div>
+
+
+	<div class="container ">
+
+		<div class="row justify-content-center">
+			<div class="col-lg-6 col-md-8">
+				<div class="card p-4">
+					<div
+						class="card-header text-center mb-4 d-flex justify-content-center align-items-center gap-2"
+						style="background-color: #4b50b8; color: #fff;">
+						<i class="bi bi-box-seam fs-4"></i>
+						<h4 class="mb-0">Add Product</h4>
+					</div>
+
+					<form th:action="@{/admin/saveProduct}" th:object="${product}"
+						method="post" enctype="multipart/form-data">
+
+						<div class="mb-3">
+							<label class="form-label">Product Title</label> <input
+								type="text" class="form-control" th:field="*{title}"
+								placeholder="Enter product title" required>
+						</div>
+
+						<div class="mb-3">
+							<label class="form-label">Description</label>
+							<textarea class="form-control" th:field="*{description}" rows="3"
+								placeholder="Enter product description"></textarea>
+						</div>
+
+						<div class="mb-3">
+							<label class="form-label">Category</label> <select
+								th:field="*{category}" class="form-select" required>
+								<option value="">Select Category</option>
+								<option th:each="cat : ${categories}" th:value="${cat.id}"
+									th:text="${cat.name}"></option>
+							</select>
+						</div>
+
+						<div class="row mb-3">
+							<div class="col-md-6 mb-3 mb-md-0">
+								<label class="form-label">Price</label> <input type="number"
+									class="form-control" th:field="*{price}"
+									placeholder="Enter price" required>
+							</div>
+							<div class="col-md-6">
+								<label class="form-label">Stock</label> <input type="number"
+									class="form-control" th:field="*{stock}"
+									placeholder="Enter stock quantity" required>
+							</div>
+						</div>
+
+						<div class="mb-4">
+							<label class="form-label">Upload Image</label> <input type="file"
+								name="file" class="form-control">
+						</div>
+
+						<div class="d-grid">
+							<button type="submit" class="btn btn-lg"
+								style="background-color: #4b50b8; color: #fff;"
+								onclick="showSuccess1()">Add Product</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="~{fragments/footer :: footer}"></div>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+		function showSuccess1() {
+
+			setTimeout(function() {
+				alert("Product successfully added!");
+			}, 600);
+		}
+	</script>
+</body>
+</html>

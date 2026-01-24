@@ -1,112 +1,137 @@
 package com.example.demo.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Column(nullable = false)
-    private String fullName;
+	@Column(nullable = false)
+	private String fullName;
 
-    @Column(nullable = false, unique = true)
-    private String mobile;
+	@Column(nullable = false, unique = true)
+	private String mobile;
 
-    @Column(nullable = false, unique = true)
-    private String email;
+	@Column(nullable = false, unique = true)
+	private String email;
 
-    private String address;
-    private String city;
-    private String state;
-    private String pincode;
+	@Column(nullable = false)
+	private String role;
 
-    @Column(nullable = false)
-    private String password;
+	private String address;
+	private String city;
+	private String state;
+	private String pincode;
 
- 
-    private String profileImage;
+	@Column(nullable = false)
+	private String password;
 
-   
-    public User() {}
+	@Transient
+	private String comfirmedPassword;
 
-   
-    public Long getId() {
-        return id;
-    }
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Order> orders = new ArrayList<>();
 
-    public String getFullName() {
-        return fullName;
-    }
+	public List<Order> getOrders() {
+		return orders;
+	}
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
 
-    public String getMobile() {
-        return mobile;
-    }
+	public User() {
+	}
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getFullName() {
+		return fullName;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public String getMobile() {
+		return mobile;
+	}
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
 
-    public String getCity() {
-        return city;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getState() {
-        return state;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public void setState(String state) {
-        this.state = state;
-    }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public String getPincode() {
-        return pincode;
-    }
+	public String getCity() {
+		return city;
+	}
 
-    public void setPincode(String pincode) {
-        this.pincode = pincode;
-    }
+	public void setCity(String city) {
+		this.city = city;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public String getState() {
+		return state;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setState(String state) {
+		this.state = state;
+	}
 
-    public String getProfileImage() {
-        return profileImage;
-    }
+	public String getPincode() {
+		return pincode;
+	}
 
-    public void setProfileImage(String profileImage) {
-        this.profileImage = profileImage;
-    }
+	public void setPincode(String pincode) {
+		this.pincode = pincode;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getComfirmedPassword() {
+		return comfirmedPassword;
+	}
+
+	public void setComfirmedPassword(String comfirmedPassword) {
+		this.comfirmedPassword = comfirmedPassword;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
 }

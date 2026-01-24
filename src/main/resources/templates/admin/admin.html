@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" th:href="@{/css/navbar.css}">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<style>
+.login-bg {
+	min-height: 80vh;
+}
+
+.login-bg::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	backdrop-filter: blur(2px);
+	z-index: 0;
+}
+
+.login-bg>.container {
+	position: relative;
+	z-index: 1;
+}
+
+.card-circle {
+	width: 100px;
+	height: 120px;
+	border-radius: 15px;
+	text-align: center;
+	padding: 15px 10px;
+	margin: 10px auto;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+	cursor: pointer;
+	transition: transform 0.2s;
+}
+
+.card-circle:hover {
+	transform: scale(1.05);
+}
+
+.card-circle i {
+	font-size: 2rem;
+	color: rgb(0, 0, 0, 0, 64);
+	margin-bottom: 10px;
+}
+
+.card-title {
+	font-size: 0.85rem;
+	font-weight: 500;
+	margin-bottom: 0;
+}
+
+.row {
+	justify-content: center;
+}
+</style>
+</head>
+<body>
+
+
+
+
+	<div class="login-bg">
+		<div class="container mt-1">
+			<h1 class="text-center text-secondary">Admin Dashboard</h1>
+			<div class="row mb-3">
+				<div class="col-auto">
+					<a th:href="@{/admin/addProducts}" class="text-decoration-none">
+						<div class="card card-circle ">
+							<i class="bi bi-plus-square"></i>
+							<div class="card-body p-0">
+								<h6 class="card-title">Add Product</h6>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-auto">
+					<a th:href="@{/admin/addCategorys}" class="text-decoration-none">
+						<div class="card card-circle">
+							<i class="bi bi-tags"></i>
+							<div class="card-body p-0">
+								<h6 class="card-title">Add Category</h6>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-auto">
+					<a th:href="@{/admin/viewProducts}" class="text-decoration-none">
+						<div class="card card-circle">
+							<i class="bi bi-eye"></i>
+							<div class="card-body p-0">
+								<h6 class="card-title">View Product</h6>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-auto">
+					<a th:href="@{/admin/addPayment}" class="text-decoration-none">
+						<div class="card card-circle">
+							<i class="bi bi-plus-square"></i>
+							<div class="card-body p-0">
+								<h6 class="card-title">Add Payment</h6>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="row mb-3">
+				<div class="col-auto">
+					<a th:href="@{/admin/orders}" class="text-decoration-none">
+						<div class="card card-circle">
+							<i class="bi bi-inboxes-fill"></i>
+							<div class="card-body p-0">
+								<h6 class="card-title">Orders</h6>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-auto">
+					<a th:href="@{/userViews}" class="text-decoration-none">
+						<div class="card card-circle">
+							<i class="bi bi-people-fill"></i>
+							<div class="card-body p-0">
+								<h6 class="card-title">User</h6>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-auto">
+					<a th:href="@{/admin/addAdmins}" class="text-decoration-none">
+						<div class="card card-circle">
+							<i class="bi bi-person-circle"></i>
+							<div class="card-body p-0">
+								<h6 class="card-title">Add Admin</h6>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-auto">
+					<a th:href="@{/logout}" class="text-decoration-none">
+						<div class="card card-circle">
+							<i class="bi bi-box-arrow-in-left"></i>
+							<div class="card-body p-0 text-danger">
+								<h6 class="card-title">Logout</h6>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:replace="~{fragments/footer :: footer}"></div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+</body>
+</html>
